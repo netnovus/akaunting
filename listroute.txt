@@ -1,0 +1,603 @@
+
+  GET|HEAD        / ................................................................................................... 
+  GET|HEAD        _debugbar/assets/javascript ............. debugbar.assets.js › Barryvdh\Debugbar › AssetController@js
+  GET|HEAD        _debugbar/assets/stylesheets .......... debugbar.assets.css › Barryvdh\Debugbar › AssetController@css
+  DELETE          _debugbar/cache/{key}/{tags?} .... debugbar.cache.delete › Barryvdh\Debugbar › CacheController@delete
+  GET|HEAD        _debugbar/clockwork/{id} ... debugbar.clockwork › Barryvdh\Debugbar › OpenHandlerController@clockwork
+  GET|HEAD        _debugbar/open .............. debugbar.openhandler › Barryvdh\Debugbar › OpenHandlerController@handle
+  GET|HEAD        api/accounts ........................................ api.accounts.index › Api\Banking\Accounts@index
+  POST            api/accounts ........................................ api.accounts.store › Api\Banking\Accounts@store
+  GET|HEAD        api/accounts/{account} ................................ api.accounts.show › Api\Banking\Accounts@show
+  PUT|PATCH       api/accounts/{account} ............................ api.accounts.update › Api\Banking\Accounts@update
+  DELETE          api/accounts/{account} .......................... api.accounts.destroy › Api\Banking\Accounts@destroy
+  GET|HEAD        api/accounts/{account}/disable .................. api.accounts.disable › Api\Banking\Accounts@disable
+  GET|HEAD        api/accounts/{account}/enable ..................... api.accounts.enable › Api\Banking\Accounts@enable
+  GET|HEAD        api/categories ................................. api.categories.index › Api\Settings\Categories@index
+  POST            api/categories ................................. api.categories.store › Api\Settings\Categories@store
+  GET|HEAD        api/categories/{category} ........................ api.categories.show › Api\Settings\Categories@show
+  PUT|PATCH       api/categories/{category} .................... api.categories.update › Api\Settings\Categories@update
+  DELETE          api/categories/{category} .................. api.categories.destroy › Api\Settings\Categories@destroy
+  GET|HEAD        api/categories/{category}/disable .......... api.categories.disable › Api\Settings\Categories@disable
+  GET|HEAD        api/categories/{category}/enable ............. api.categories.enable › Api\Settings\Categories@enable
+  GET|HEAD        api/companies ...................................... api.companies.index › Api\Common\Companies@index
+  POST            api/companies ...................................... api.companies.store › Api\Common\Companies@store
+  GET|HEAD        api/companies/{company} .............................. api.companies.show › Api\Common\Companies@show
+  PUT|PATCH       api/companies/{company} .......................... api.companies.update › Api\Common\Companies@update
+  DELETE          api/companies/{company} ........................ api.companies.destroy › Api\Common\Companies@destroy
+  GET|HEAD        api/companies/{company}/disable ................ api.companies.disable › Api\Common\Companies@disable
+  GET|HEAD        api/companies/{company}/enable ................... api.companies.enable › Api\Common\Companies@enable
+  GET|HEAD        api/companies/{company}/owner .................. api.companies.owner › Api\Common\Companies@canAccess
+  GET|HEAD        api/contacts ......................................... api.contacts.index › Api\Common\Contacts@index
+  POST            api/contacts ......................................... api.contacts.store › Api\Common\Contacts@store
+  GET|HEAD        api/contacts/{contact} ................................. api.contacts.show › Api\Common\Contacts@show
+  PUT|PATCH       api/contacts/{contact} ............................. api.contacts.update › Api\Common\Contacts@update
+  DELETE          api/contacts/{contact} ........................... api.contacts.destroy › Api\Common\Contacts@destroy
+  GET|HEAD        api/contacts/{contact}/disable ................... api.contacts.disable › Api\Common\Contacts@disable
+  GET|HEAD        api/contacts/{contact}/enable ...................... api.contacts.enable › Api\Common\Contacts@enable
+  GET|HEAD        api/currencies ................................. api.currencies.index › Api\Settings\Currencies@index
+  POST            api/currencies ................................. api.currencies.store › Api\Settings\Currencies@store
+  GET|HEAD        api/currencies/{currency} ........................ api.currencies.show › Api\Settings\Currencies@show
+  PUT|PATCH       api/currencies/{currency} .................... api.currencies.update › Api\Settings\Currencies@update
+  DELETE          api/currencies/{currency} .................. api.currencies.destroy › Api\Settings\Currencies@destroy
+  GET|HEAD        api/currencies/{currency}/disable .......... api.currencies.disable › Api\Settings\Currencies@disable
+  GET|HEAD        api/currencies/{currency}/enable ............. api.currencies.enable › Api\Settings\Currencies@enable
+  GET|HEAD        api/dashboards ................................... api.dashboards.index › Api\Common\Dashboards@index
+  POST            api/dashboards ................................... api.dashboards.store › Api\Common\Dashboards@store
+  GET|HEAD        api/dashboards/{dashboard} ......................... api.dashboards.show › Api\Common\Dashboards@show
+  PUT|PATCH       api/dashboards/{dashboard} ..................... api.dashboards.update › Api\Common\Dashboards@update
+  DELETE          api/dashboards/{dashboard} ................... api.dashboards.destroy › Api\Common\Dashboards@destroy
+  GET|HEAD        api/dashboards/{dashboard}/disable ........... api.dashboards.disable › Api\Common\Dashboards@disable
+  GET|HEAD        api/dashboards/{dashboard}/enable .............. api.dashboards.enable › Api\Common\Dashboards@enable
+  GET|HEAD        api/documents .................................... api.documents.index › Api\Document\Documents@index
+  POST            api/documents .................................... api.documents.store › Api\Document\Documents@store
+  GET|HEAD        api/documents/{document} ........................... api.documents.show › Api\Document\Documents@show
+  PUT|PATCH       api/documents/{document} ....................... api.documents.update › Api\Document\Documents@update
+  DELETE          api/documents/{document} ..................... api.documents.destroy › Api\Document\Documents@destroy
+  GET|HEAD        api/documents/{document}/received .......... api.documents.received › Api\Document\Documents@received
+  GET|HEAD        api/documents/{document}/transactions api.documents.transactions.index › Api\Document\DocumentTransa…
+  POST            api/documents/{document}/transactions api.documents.transactions.store › Api\Document\DocumentTransa…
+  GET|HEAD        api/documents/{document}/transactions/{transaction} api.documents.transactions.show › Api\Document\D…
+  PUT|PATCH       api/documents/{document}/transactions/{transaction} api.documents.transactions.update › Api\Document…
+  DELETE          api/documents/{document}/transactions/{transaction} api.documents.transactions.destroy › Api\Documen…
+  GET|HEAD        api/items .................................................. api.items.index › Api\Common\Items@index
+  POST            api/items .................................................. api.items.store › Api\Common\Items@store
+  GET|HEAD        api/items/{item} ............................................. api.items.show › Api\Common\Items@show
+  PUT|PATCH       api/items/{item} ......................................... api.items.update › Api\Common\Items@update
+  DELETE          api/items/{item} ....................................... api.items.destroy › Api\Common\Items@destroy
+  GET|HEAD        api/items/{item}/disable ............................... api.items.disable › Api\Common\Items@disable
+  GET|HEAD        api/items/{item}/enable .................................. api.items.enable › Api\Common\Items@enable
+  GET|HEAD        api/ping ............................................................ api.ping › Api\Common\Ping@pong
+  GET|HEAD        api/reconciliations ................... api.reconciliations.index › Api\Banking\Reconciliations@index
+  POST            api/reconciliations ................... api.reconciliations.store › Api\Banking\Reconciliations@store
+  GET|HEAD        api/reconciliations/{reconciliation} .... api.reconciliations.show › Api\Banking\Reconciliations@show
+  PUT|PATCH       api/reconciliations/{reconciliation} api.reconciliations.update › Api\Banking\Reconciliations@update
+  DELETE          api/reconciliations/{reconciliation} api.reconciliations.destroy › Api\Banking\Reconciliations@destr…
+  GET|HEAD        api/reports ............................................ api.reports.index › Api\Common\Reports@index
+  POST            api/reports ............................................ api.reports.store › Api\Common\Reports@store
+  GET|HEAD        api/reports/create ................................... api.reports.create › Api\Common\Reports@create
+  GET|HEAD        api/reports/{report} ..................................... api.reports.show › Api\Common\Reports@show
+  PUT|PATCH       api/reports/{report} ................................. api.reports.update › Api\Common\Reports@update
+  DELETE          api/reports/{report} ............................... api.reports.destroy › Api\Common\Reports@destroy
+  GET|HEAD        api/reports/{report}/edit ................................ api.reports.edit › Api\Common\Reports@edit
+  GET|HEAD        api/settings ....................................... api.settings.index › Api\Settings\Settings@index
+  POST            api/settings ....................................... api.settings.store › Api\Settings\Settings@store
+  GET|HEAD        api/settings/{setting} ............................... api.settings.show › Api\Settings\Settings@show
+  PUT|PATCH       api/settings/{setting} ........................... api.settings.update › Api\Settings\Settings@update
+  DELETE          api/settings/{setting} ......................... api.settings.destroy › Api\Settings\Settings@destroy
+  GET|HEAD        api/taxes ................................................ api.taxes.index › Api\Settings\Taxes@index
+  POST            api/taxes ................................................ api.taxes.store › Api\Settings\Taxes@store
+  GET|HEAD        api/taxes/{tax} ............................................ api.taxes.show › Api\Settings\Taxes@show
+  PUT|PATCH       api/taxes/{tax} ........................................ api.taxes.update › Api\Settings\Taxes@update
+  DELETE          api/taxes/{tax} ...................................... api.taxes.destroy › Api\Settings\Taxes@destroy
+  GET|HEAD        api/taxes/{tax}/disable .............................. api.taxes.disable › Api\Settings\Taxes@disable
+  GET|HEAD        api/taxes/{tax}/enable ................................. api.taxes.enable › Api\Settings\Taxes@enable
+  GET|HEAD        api/transactions ............................ api.transactions.index › Api\Banking\Transactions@index
+  POST            api/transactions ............................ api.transactions.store › Api\Banking\Transactions@store
+  GET|HEAD        api/transactions/{transaction} ................ api.transactions.show › Api\Banking\Transactions@show
+  PUT|PATCH       api/transactions/{transaction} ............ api.transactions.update › Api\Banking\Transactions@update
+  DELETE          api/transactions/{transaction} .......... api.transactions.destroy › Api\Banking\Transactions@destroy
+  GET|HEAD        api/transfers ..................................... api.transfers.index › Api\Banking\Transfers@index
+  POST            api/transfers ..................................... api.transfers.store › Api\Banking\Transfers@store
+  GET|HEAD        api/transfers/{transfer} ............................ api.transfers.show › Api\Banking\Transfers@show
+  PUT|PATCH       api/transfers/{transfer} ........................ api.transfers.update › Api\Banking\Transfers@update
+  DELETE          api/transfers/{transfer} ...................... api.transfers.destroy › Api\Banking\Transfers@destroy
+  GET|HEAD        api/translations/{locale}/all .................... api.translations.all › Api\Common\Translations@all
+  GET|HEAD        api/translations/{locale}/{file} ............... api.translations.file › Api\Common\Translations@file
+  GET|HEAD        api/users .................................................... api.users.index › Api\Auth\Users@index
+  POST            api/users .................................................... api.users.store › Api\Auth\Users@store
+  GET|HEAD        api/users/{user} ............................................... api.users.show › Api\Auth\Users@show
+  PUT|PATCH       api/users/{user} ........................................... api.users.update › Api\Auth\Users@update
+  DELETE          api/users/{user} ......................................... api.users.destroy › Api\Auth\Users@destroy
+  GET|HEAD        api/users/{user}/disable ................................. api.users.disable › Api\Auth\Users@disable
+  GET|HEAD        api/users/{user}/enable .................................... api.users.enable › Api\Auth\Users@enable
+  GET|HEAD        auth/forgot ............................................................. forgot › Auth\Forgot@create
+  POST            auth/forgot ........................................................ forgot.store › Auth\Forgot@store
+  GET|HEAD        auth/login ................................................................ login › Auth\Login@create
+  POST            auth/login ........................................................... login.store › Auth\Login@store
+  POST            auth/register .................................................. register.store › Auth\Register@store
+  GET|HEAD        auth/register/{token} ............................................... register › Auth\Register@create
+  POST            auth/reset ........................................................... reset.store › Auth\Reset@store
+  GET|HEAD        auth/reset/{token} ........................................................ reset › Auth\Reset@create
+  GET|HEAD        install ................................................................... Install\Requirements@show
+  GET|HEAD        install/database ......................................... install.database › Install\Database@create
+  POST            install/database ............................................................. Install\Database@store
+  GET|HEAD        install/language ......................................... install.language › Install\Language@create
+  POST            install/language ............................................................. Install\Language@store
+  GET|HEAD        install/language/getLanguages ......................................... Install\Language@getLanguages
+  GET|HEAD        install/requirements ............................... install.requirements › Install\Requirements@show
+  GET|HEAD        install/settings ......................................... install.settings › Install\Settings@create
+  POST            install/settings ............................................................. Install\Settings@store
+  GET|HEAD        languages/{locale}/back ......................... language::back › Akaunting\Language › Language@back
+  GET|HEAD        livewire/livewire.js ......................... Livewire\Controllers › LivewireJavaScriptAssets@source
+  GET|HEAD        livewire/livewire.js.map ....................... Livewire\Controllers › LivewireJavaScriptAssets@maps
+  GET|HEAD        sanctum/csrf-cookie ............... sanctum.csrf-cookie › Laravel\Sanctum › CsrfCookieController@show
+  GET|HEAD        {company_id} ..................................................... dashboard › Common\Dashboards@show
+  GET|HEAD        {company_id}/apps/api-key ................................. apps.api-key.index › Modules\ApiKey@index
+  POST            {company_id}/apps/api-key ................................. apps.api-key.store › Modules\ApiKey@store
+  GET|HEAD        {company_id}/apps/api-key/create ........................ apps.api-key.create › Modules\ApiKey@create
+  GET|HEAD        {company_id}/apps/api-key/{api_key} ......................... apps.api-key.show › Modules\ApiKey@show
+  PUT|PATCH       {company_id}/apps/api-key/{api_key} ..................... apps.api-key.update › Modules\ApiKey@update
+  DELETE          {company_id}/apps/api-key/{api_key} ................... apps.api-key.destroy › Modules\ApiKey@destroy
+  GET|HEAD        {company_id}/apps/api-key/{api_key}/edit .................... apps.api-key.edit › Modules\ApiKey@edit
+  GET|HEAD        {company_id}/apps/categories/{alias} ........... apps.categories.show › Modules\Tiles@categoryModules
+  POST            {company_id}/apps/copy ................................................ apps.copy › Modules\Item@copy
+  GET|HEAD        {company_id}/apps/docs/{alias} .......................... apps.docs.show › Modules\Item@documentation
+  POST            {company_id}/apps/download .................................... apps.download › Modules\Item@download
+  GET|HEAD        {company_id}/apps/free ........................................ apps.free › Modules\Tiles@freeModules
+  GET|HEAD        {company_id}/apps/home ......................................... apps.home.index › Modules\Home@index
+  POST            {company_id}/apps/home ......................................... apps.home.store › Modules\Home@store
+  GET|HEAD        {company_id}/apps/home/create ................................ apps.home.create › Modules\Home@create
+  GET|HEAD        {company_id}/apps/home/{home} .................................... apps.home.show › Modules\Home@show
+  PUT|PATCH       {company_id}/apps/home/{home} ................................ apps.home.update › Modules\Home@update
+  DELETE          {company_id}/apps/home/{home} .............................. apps.home.destroy › Modules\Home@destroy
+  GET|HEAD        {company_id}/apps/home/{home}/edit ............................... apps.home.edit › Modules\Home@edit
+  POST            {company_id}/apps/install ....................................... apps.install › Modules\Item@install
+  GET|HEAD        {company_id}/apps/my ............................................... apps.my.index › Modules\My@index
+  POST            {company_id}/apps/my ............................................... apps.my.store › Modules\My@store
+  GET|HEAD        {company_id}/apps/my/create ...................................... apps.my.create › Modules\My@create
+  GET|HEAD        {company_id}/apps/my/{my} ............................................ apps.my.show › Modules\My@show
+  PUT|PATCH       {company_id}/apps/my/{my} ........................................ apps.my.update › Modules\My@update
+  DELETE          {company_id}/apps/my/{my} ...................................... apps.my.destroy › Modules\My@destroy
+  GET|HEAD        {company_id}/apps/my/{my}/edit ....................................... apps.my.edit › Modules\My@edit
+  GET|HEAD        {company_id}/apps/new ........................................... apps.new › Modules\Tiles@newModules
+  GET|HEAD        {company_id}/apps/paid ........................................ apps.paid › Modules\Tiles@paidModules
+  GET|HEAD        {company_id}/apps/search .................................. apps.search › Modules\Tiles@searchModules
+  POST            {company_id}/apps/steps ............................................. apps.steps › Modules\Item@steps
+  POST            {company_id}/apps/unzip ............................................. apps.unzip › Modules\Item@unzip
+  GET|HEAD        {company_id}/apps/vendors/{alias} ................... apps.vendors.show › Modules\Tiles@vendorModules
+  GET|HEAD        {company_id}/apps/{alias} ......................................... apps.app.show › Modules\Item@show
+  GET|HEAD        {company_id}/apps/{alias}/disable ........................... apps.app.disable › Modules\Item@disable
+  GET|HEAD        {company_id}/apps/{alias}/enable .............................. apps.app.enable › Modules\Item@enable
+  POST            {company_id}/apps/{alias}/releases ........................ apps.app.releases › Modules\Item@releases
+  POST            {company_id}/apps/{alias}/reviews ........................... apps.app.reviews › Modules\Item@reviews
+  GET|HEAD        {company_id}/apps/{alias}/uninstall ..................... apps.app.uninstall › Modules\Item@uninstall
+  POST            {company_id}/apps/{type}/load-more .......................... apps.load-more › Modules\Tiles@loadMore
+  GET|HEAD        {company_id}/auth/logout ................................................ logout › Auth\Login@destroy
+  PATCH           {company_id}/auth/profile/{user} ................................. profile.update › Auth\Users@update
+  GET|HEAD        {company_id}/auth/profile/{user}/edit ................................ profile.edit › Auth\Users@edit
+  GET|HEAD        {company_id}/auth/users .............................................. users.index › Auth\Users@index
+  POST            {company_id}/auth/users .............................................. users.store › Auth\Users@store
+  GET|HEAD        {company_id}/auth/users/autocomplete ................... users.autocomplete › Auth\Users@autocomplete
+  GET|HEAD        {company_id}/auth/users/create ..................................... users.create › Auth\Users@create
+  GET|HEAD        {company_id}/auth/users/landingpages ................... users.landingpages › Auth\Users@landingPages
+  GET|HEAD        {company_id}/auth/users/{user} ......................................... users.show › Auth\Users@show
+  PUT|PATCH       {company_id}/auth/users/{user} ..................................... users.update › Auth\Users@update
+  DELETE          {company_id}/auth/users/{user} ................................... users.destroy › Auth\Users@destroy
+  GET|HEAD        {company_id}/auth/users/{user}/disable ........................... users.disable › Auth\Users@disable
+  GET|HEAD        {company_id}/auth/users/{user}/edit .................................... users.edit › Auth\Users@edit
+  GET|HEAD        {company_id}/auth/users/{user}/enable .............................. users.enable › Auth\Users@enable
+  GET|HEAD        {company_id}/auth/users/{user}/invite .............................. users.invite › Auth\Users@invite
+  GET|HEAD        {company_id}/auth/users/{user}/read-bills ........... users.read.bills › Auth\Users@readUpcomingBills
+  GET|HEAD        {company_id}/auth/users/{user}/read-invoices ... users.read.invoices › Auth\Users@readOverdueInvoices
+  GET|HEAD        {company_id}/banking/accounts ............................... accounts.index › Banking\Accounts@index
+  POST            {company_id}/banking/accounts ............................... accounts.store › Banking\Accounts@store
+  GET|HEAD        {company_id}/banking/accounts/create ...................... accounts.create › Banking\Accounts@create
+  GET|HEAD        {company_id}/banking/accounts/currency ................ accounts.currency › Banking\Accounts@currency
+  GET|HEAD        {company_id}/banking/accounts/{account} ....................... accounts.show › Banking\Accounts@show
+  PUT|PATCH       {company_id}/banking/accounts/{account} ................... accounts.update › Banking\Accounts@update
+  DELETE          {company_id}/banking/accounts/{account} ................. accounts.destroy › Banking\Accounts@destroy
+  GET|HEAD        {company_id}/banking/accounts/{account}/create-expense accounts.create-expense › Banking\Accounts@cr…
+  GET|HEAD        {company_id}/banking/accounts/{account}/create-income accounts.create-income › Banking\Accounts@crea…
+  GET|HEAD        {company_id}/banking/accounts/{account}/create-transfer accounts.create-transfer › Banking\Accounts@…
+  GET|HEAD        {company_id}/banking/accounts/{account}/disable ......... accounts.disable › Banking\Accounts@disable
+  GET|HEAD        {company_id}/banking/accounts/{account}/duplicate ... accounts.duplicate › Banking\Accounts@duplicate
+  GET|HEAD        {company_id}/banking/accounts/{account}/edit .................. accounts.edit › Banking\Accounts@edit
+  GET|HEAD        {company_id}/banking/accounts/{account}/enable ............ accounts.enable › Banking\Accounts@enable
+  GET|HEAD        {company_id}/banking/accounts/{account}/see-performance accounts.see-performance › Banking\Accounts@…
+  GET|HEAD        {company_id}/banking/reconciliations .......... reconciliations.index › Banking\Reconciliations@index
+  POST            {company_id}/banking/reconciliations .......... reconciliations.store › Banking\Reconciliations@store
+  POST            {company_id}/banking/reconciliations/calculate .................... Banking\Reconciliations@calculate
+  PATCH           {company_id}/banking/reconciliations/calculate .................... Banking\Reconciliations@calculate
+  GET|HEAD        {company_id}/banking/reconciliations/create . reconciliations.create › Banking\Reconciliations@create
+  GET|HEAD        {company_id}/banking/reconciliations/{reconciliation} reconciliations.show › Banking\Reconciliations…
+  PUT|PATCH       {company_id}/banking/reconciliations/{reconciliation} reconciliations.update › Banking\Reconciliatio…
+  DELETE          {company_id}/banking/reconciliations/{reconciliation} reconciliations.destroy › Banking\Reconciliati…
+  GET|HEAD        {company_id}/banking/reconciliations/{reconciliation}/edit reconciliations.edit › Banking\Reconcilia…
+  GET|HEAD        {company_id}/banking/recurring-transactions recurring-transactions.index › Banking\RecurringTransact…
+  POST            {company_id}/banking/recurring-transactions recurring-transactions.store › Banking\RecurringTransact…
+  GET|HEAD        {company_id}/banking/recurring-transactions/create recurring-transactions.create › Banking\Recurring…
+  GET|HEAD        {company_id}/banking/recurring-transactions/{recurring_transaction} recurring-transactions.show › Ba…
+  PUT|PATCH       {company_id}/banking/recurring-transactions/{recurring_transaction} recurring-transactions.update › …
+  DELETE          {company_id}/banking/recurring-transactions/{recurring_transaction} recurring-transactions.destroy  …
+  GET|HEAD        {company_id}/banking/recurring-transactions/{recurring_transaction}/duplicate recurring-transactions…
+  GET|HEAD        {company_id}/banking/recurring-transactions/{recurring_transaction}/edit recurring-transactions.edit…
+  GET|HEAD        {company_id}/banking/recurring-transactions/{recurring_transaction}/end recurring-transactions.end  …
+  GET|HEAD        {company_id}/banking/transactions ................... transactions.index › Banking\Transactions@index
+  POST            {company_id}/banking/transactions ................... transactions.store › Banking\Transactions@store
+  GET|HEAD        {company_id}/banking/transactions/create .......... transactions.create › Banking\Transactions@create
+  GET|HEAD        {company_id}/banking/transactions/export .......... transactions.export › Banking\Transactions@export
+  POST            {company_id}/banking/transactions/import .......... transactions.import › Banking\Transactions@import
+  GET|HEAD        {company_id}/banking/transactions/{transaction} ....... transactions.show › Banking\Transactions@show
+  PUT|PATCH       {company_id}/banking/transactions/{transaction} ... transactions.update › Banking\Transactions@update
+  DELETE          {company_id}/banking/transactions/{transaction} . transactions.destroy › Banking\Transactions@destroy
+  POST            {company_id}/banking/transactions/{transaction}/connect transactions.connect › Banking\Transactions@…
+  GET|HEAD        {company_id}/banking/transactions/{transaction}/dial .. transactions.dial › Banking\Transactions@dial
+  GET|HEAD        {company_id}/banking/transactions/{transaction}/duplicate transactions.duplicate › Banking\Transacti…
+  GET|HEAD        {company_id}/banking/transactions/{transaction}/edit .. transactions.edit › Banking\Transactions@edit
+  GET|HEAD        {company_id}/banking/transactions/{transaction}/email transactions.email › Banking\Transactions@emai…
+  GET|HEAD        {company_id}/banking/transactions/{transaction}/pdf transactions.pdf › Banking\Transactions@pdfTrans…
+  GET|HEAD        {company_id}/banking/transactions/{transaction}/print transactions.print › Banking\Transactions@prin…
+  GET|HEAD        {company_id}/banking/transfers ............................ transfers.index › Banking\Transfers@index
+  POST            {company_id}/banking/transfers ............................ transfers.store › Banking\Transfers@store
+  GET|HEAD        {company_id}/banking/transfers/create ................... transfers.create › Banking\Transfers@create
+  GET|HEAD        {company_id}/banking/transfers/export ................... transfers.export › Banking\Transfers@export
+  POST            {company_id}/banking/transfers/import ................... transfers.import › Banking\Transfers@import
+  GET|HEAD        {company_id}/banking/transfers/{transfer} ................... transfers.show › Banking\Transfers@show
+  PUT|PATCH       {company_id}/banking/transfers/{transfer} ............... transfers.update › Banking\Transfers@update
+  DELETE          {company_id}/banking/transfers/{transfer} ............. transfers.destroy › Banking\Transfers@destroy
+  GET|HEAD        {company_id}/banking/transfers/{transfer}/duplicate transfers.duplicate › Banking\Transfers@duplicate
+  GET|HEAD        {company_id}/banking/transfers/{transfer}/edit .............. transfers.edit › Banking\Transfers@edit
+  GET|HEAD        {company_id}/banking/transfers/{transfer}/pdf ......... transfers.pdf › Banking\Transfers@pdfTransfer
+  GET|HEAD        {company_id}/banking/transfers/{transfer}/print ... transfers.print › Banking\Transfers@printTransfer
+  POST            {company_id}/common/bulk-actions/{group}/{type} ..... bulk-actions.action › Common\BulkActions@action
+  GET|HEAD        {company_id}/common/companies .............................. companies.index › Common\Companies@index
+  POST            {company_id}/common/companies .............................. companies.store › Common\Companies@store
+  GET|HEAD        {company_id}/common/companies/autocomplete ... companies.autocomplete › Common\Companies@autocomplete
+  GET|HEAD        {company_id}/common/companies/create ..................... companies.create › Common\Companies@create
+  GET|HEAD        {company_id}/common/companies/{company} ...................... companies.show › Common\Companies@show
+  PUT|PATCH       {company_id}/common/companies/{company} .................. companies.update › Common\Companies@update
+  DELETE          {company_id}/common/companies/{company} ................ companies.destroy › Common\Companies@destroy
+  GET|HEAD        {company_id}/common/companies/{company}/disable ........ companies.disable › Common\Companies@disable
+  GET|HEAD        {company_id}/common/companies/{company}/edit ................. companies.edit › Common\Companies@edit
+  GET|HEAD        {company_id}/common/companies/{company}/enable ........... companies.enable › Common\Companies@enable
+  GET|HEAD        {company_id}/common/companies/{company}/switch ........... companies.switch › Common\Companies@switch
+  GET|HEAD        {company_id}/common/contacts/index ........................... contacts.index › Common\Contacts@index
+  GET|HEAD        {company_id}/common/dashboards ........................... dashboards.index › Common\Dashboards@index
+  POST            {company_id}/common/dashboards ........................... dashboards.store › Common\Dashboards@store
+  GET|HEAD        {company_id}/common/dashboards/create .................. dashboards.create › Common\Dashboards@create
+  GET|HEAD        {company_id}/common/dashboards/{dashboard} ................. dashboards.show › Common\Dashboards@show
+  PUT|PATCH       {company_id}/common/dashboards/{dashboard} ............. dashboards.update › Common\Dashboards@update
+  DELETE          {company_id}/common/dashboards/{dashboard} ........... dashboards.destroy › Common\Dashboards@destroy
+  GET|HEAD        {company_id}/common/dashboards/{dashboard}/disable ... dashboards.disable › Common\Dashboards@disable
+  GET|HEAD        {company_id}/common/dashboards/{dashboard}/edit ............ dashboards.edit › Common\Dashboards@edit
+  GET|HEAD        {company_id}/common/dashboards/{dashboard}/enable ...... dashboards.enable › Common\Dashboards@enable
+  GET|HEAD        {company_id}/common/dashboards/{dashboard}/switch ...... dashboards.switch › Common\Dashboards@switch
+  GET|HEAD        {company_id}/common/import/{group}/{type}/{route?} ............. import.create › Common\Import@create
+  GET|HEAD        {company_id}/common/items .......................................... items.index › Common\Items@index
+  POST            {company_id}/common/items .......................................... items.store › Common\Items@store
+  GET|HEAD        {company_id}/common/items/autocomplete ............... items.autocomplete › Common\Items@autocomplete
+  GET|HEAD        {company_id}/common/items/create ................................. items.create › Common\Items@create
+  GET|HEAD        {company_id}/common/items/export ................................. items.export › Common\Items@export
+  POST            {company_id}/common/items/import ................................. items.import › Common\Items@import
+  GET|HEAD        {company_id}/common/items/{item} ..................................... items.show › Common\Items@show
+  PUT|PATCH       {company_id}/common/items/{item} ................................. items.update › Common\Items@update
+  DELETE          {company_id}/common/items/{item} ............................... items.destroy › Common\Items@destroy
+  GET|HEAD        {company_id}/common/items/{item}/disable ....................... items.disable › Common\Items@disable
+  GET|HEAD        {company_id}/common/items/{item}/duplicate ................. items.duplicate › Common\Items@duplicate
+  GET|HEAD        {company_id}/common/items/{item}/edit ................................ items.edit › Common\Items@edit
+  GET|HEAD        {company_id}/common/items/{item}/enable .......................... items.enable › Common\Items@enable
+  GET|HEAD        {company_id}/common/reports .................................... reports.index › Common\Reports@index
+  POST            {company_id}/common/reports .................................... reports.store › Common\Reports@store
+  GET|HEAD        {company_id}/common/reports/create ........................... reports.create › Common\Reports@create
+  GET|HEAD        {company_id}/common/reports/fields ........................... reports.fields › Common\Reports@fields
+  GET|HEAD        {company_id}/common/reports/{report} ............................. reports.show › Common\Reports@show
+  PUT|PATCH       {company_id}/common/reports/{report} ......................... reports.update › Common\Reports@update
+  DELETE          {company_id}/common/reports/{report} ....................... reports.destroy › Common\Reports@destroy
+  GET|HEAD        {company_id}/common/reports/{report}/clear ..................... reports.clear › Common\Reports@clear
+  GET|HEAD        {company_id}/common/reports/{report}/duplicate ......... reports.duplicate › Common\Reports@duplicate
+  GET|HEAD        {company_id}/common/reports/{report}/edit ........................ reports.edit › Common\Reports@edit
+  GET|HEAD        {company_id}/common/reports/{report}/export .................. reports.export › Common\Reports@export
+  GET|HEAD        {company_id}/common/reports/{report}/print ..................... reports.print › Common\Reports@print
+  GET|HEAD        {company_id}/common/widgets .................................... widgets.index › Common\Widgets@index
+  POST            {company_id}/common/widgets .................................... widgets.store › Common\Widgets@store
+  GET|HEAD        {company_id}/common/widgets/create ........................... widgets.create › Common\Widgets@create
+  POST            {company_id}/common/widgets/getData ........................ widgets.getData › Common\Widgets@getData
+  GET|HEAD        {company_id}/common/widgets/{widget} ............................. widgets.show › Common\Widgets@show
+  PUT|PATCH       {company_id}/common/widgets/{widget} ......................... widgets.update › Common\Widgets@update
+  DELETE          {company_id}/common/widgets/{widget} ....................... widgets.destroy › Common\Widgets@destroy
+  GET|HEAD        {company_id}/common/widgets/{widget}/edit ........................ widgets.edit › Common\Widgets@edit
+  GET|HEAD        {company_id}/install/updates .................................. updates.index › Install\Updates@index
+  GET|HEAD        {company_id}/install/updates/changelog ................ updates.changelog › Install\Updates@changelog
+  GET|HEAD        {company_id}/install/updates/check ............................ updates.check › Install\Updates@check
+  POST            {company_id}/install/updates/copy-files .................... updates.copy › Install\Updates@copyFiles
+  POST            {company_id}/install/updates/download ................... updates.download › Install\Updates@download
+  POST            {company_id}/install/updates/finish ......................... updates.finish › Install\Updates@finish
+  POST            {company_id}/install/updates/migrate ...................... updates.migrate › Install\Updates@migrate
+  POST            {company_id}/install/updates/redirect ................... updates.redirect › Install\Updates@redirect
+  GET|HEAD        {company_id}/install/updates/run/{alias}/{version} ................ updates.run › Install\Updates@run
+  POST            {company_id}/install/updates/steps ............................ updates.steps › Install\Updates@steps
+  POST            {company_id}/install/updates/unzip ............................ updates.unzip › Install\Updates@unzip
+  POST            {company_id}/livewire/message/{name} livewire.message › Livewire\Controllers › HttpConnectionHandler
+  GET|HEAD        {company_id}/livewire/preview-file/{filename} livewire.preview-file › Livewire\Controllers › FilePre…
+  POST            {company_id}/livewire/upload-file livewire.upload-file › Livewire\Controllers › FileUploadHandler@ha…
+  GET|HEAD        {company_id}/modals/accounts .......................... modals.accounts.index › Modals\Accounts@index
+  POST            {company_id}/modals/accounts .......................... modals.accounts.store › Modals\Accounts@store
+  GET|HEAD        {company_id}/modals/accounts/create ................. modals.accounts.create › Modals\Accounts@create
+  GET|HEAD        {company_id}/modals/accounts/{account} .................. modals.accounts.show › Modals\Accounts@show
+  PUT|PATCH       {company_id}/modals/accounts/{account} .............. modals.accounts.update › Modals\Accounts@update
+  DELETE          {company_id}/modals/accounts/{account} ............ modals.accounts.destroy › Modals\Accounts@destroy
+  GET|HEAD        {company_id}/modals/accounts/{account}/edit ............. modals.accounts.edit › Modals\Accounts@edit
+  GET|HEAD        {company_id}/modals/categories .................... modals.categories.index › Modals\Categories@index
+  POST            {company_id}/modals/categories .................... modals.categories.store › Modals\Categories@store
+  GET|HEAD        {company_id}/modals/categories/create ........... modals.categories.create › Modals\Categories@create
+  GET|HEAD        {company_id}/modals/categories/{category} ........... modals.categories.show › Modals\Categories@show
+  PUT|PATCH       {company_id}/modals/categories/{category} ....... modals.categories.update › Modals\Categories@update
+  DELETE          {company_id}/modals/categories/{category} ..... modals.categories.destroy › Modals\Categories@destroy
+  GET|HEAD        {company_id}/modals/categories/{category}/edit ...... modals.categories.edit › Modals\Categories@edit
+  GET|HEAD        {company_id}/modals/companies ....................... modals.companies.index › Modals\Companies@index
+  POST            {company_id}/modals/companies ....................... modals.companies.store › Modals\Companies@store
+  GET|HEAD        {company_id}/modals/companies/create .............. modals.companies.create › Modals\Companies@create
+  GET|HEAD        {company_id}/modals/companies/{company} ............... modals.companies.show › Modals\Companies@show
+  PUT|PATCH       {company_id}/modals/companies/{company} ........... modals.companies.update › Modals\Companies@update
+  DELETE          {company_id}/modals/companies/{company} ......... modals.companies.destroy › Modals\Companies@destroy
+  GET|HEAD        {company_id}/modals/companies/{company}/edit .......... modals.companies.edit › Modals\Companies@edit
+  GET|HEAD        {company_id}/modals/currencies .................... modals.currencies.index › Modals\Currencies@index
+  POST            {company_id}/modals/currencies .................... modals.currencies.store › Modals\Currencies@store
+  GET|HEAD        {company_id}/modals/currencies/create ........... modals.currencies.create › Modals\Currencies@create
+  GET|HEAD        {company_id}/modals/currencies/{currency} ........... modals.currencies.show › Modals\Currencies@show
+  PUT|PATCH       {company_id}/modals/currencies/{currency} ....... modals.currencies.update › Modals\Currencies@update
+  DELETE          {company_id}/modals/currencies/{currency} ..... modals.currencies.destroy › Modals\Currencies@destroy
+  GET|HEAD        {company_id}/modals/currencies/{currency}/edit ...... modals.currencies.edit › Modals\Currencies@edit
+  GET|HEAD        {company_id}/modals/customers ....................... modals.customers.index › Modals\Customers@index
+  POST            {company_id}/modals/customers ....................... modals.customers.store › Modals\Customers@store
+  GET|HEAD        {company_id}/modals/customers/create .............. modals.customers.create › Modals\Customers@create
+  GET|HEAD        {company_id}/modals/customers/{customer} .............. modals.customers.show › Modals\Customers@show
+  PUT|PATCH       {company_id}/modals/customers/{customer} .......... modals.customers.update › Modals\Customers@update
+  DELETE          {company_id}/modals/customers/{customer} ........ modals.customers.destroy › Modals\Customers@destroy
+  GET|HEAD        {company_id}/modals/customers/{customer}/edit ......... modals.customers.edit › Modals\Customers@edit
+  PATCH           {company_id}/modals/documents/item-columns modals.documents.item-columns.update › Modals\DocumentIte…
+  GET|HEAD        {company_id}/modals/documents/item-columns/edit modals.documents.item-columns.edit › Modals\Document…
+  GET|HEAD        {company_id}/modals/documents/{document}/transactions modals.documents.document.transactions.index  …
+  POST            {company_id}/modals/documents/{document}/transactions modals.documents.document.transactions.store  …
+  GET|HEAD        {company_id}/modals/documents/{document}/transactions/create modals.documents.document.transactions.…
+  GET|HEAD        {company_id}/modals/documents/{document}/transactions/{transaction} modals.documents.document.transa…
+  PUT|PATCH       {company_id}/modals/documents/{document}/transactions/{transaction} modals.documents.document.transa…
+  DELETE          {company_id}/modals/documents/{document}/transactions/{transaction} modals.documents.document.transa…
+  GET|HEAD        {company_id}/modals/documents/{document}/transactions/{transaction}/edit modals.documents.document.t…
+  PATCH           {company_id}/modals/invoice-templates modals.invoice-templates.update › Modals\InvoiceTemplates@upda…
+  POST            {company_id}/modals/invoices/{invoice}/emails modals.invoices.emails.store › Modals\InvoiceEmails@st…
+  GET|HEAD        {company_id}/modals/invoices/{invoice}/emails/create modals.invoices.emails.create › Modals\InvoiceE…
+  GET|HEAD        {company_id}/modals/invoices/{invoice}/share/create modals.invoices.share.create › Modals\InvoiceSha…
+  GET|HEAD        {company_id}/modals/items ................................... modals.items.index › Modals\Items@index
+  POST            {company_id}/modals/items ................................... modals.items.store › Modals\Items@store
+  GET|HEAD        {company_id}/modals/items/create .......................... modals.items.create › Modals\Items@create
+  GET|HEAD        {company_id}/modals/items/{item} .............................. modals.items.show › Modals\Items@show
+  PUT|PATCH       {company_id}/modals/items/{item} .......................... modals.items.update › Modals\Items@update
+  DELETE          {company_id}/modals/items/{item} ........................ modals.items.destroy › Modals\Items@destroy
+  GET|HEAD        {company_id}/modals/items/{item}/edit ......................... modals.items.edit › Modals\Items@edit
+  GET|HEAD        {company_id}/modals/taxes ................................... modals.taxes.index › Modals\Taxes@index
+  POST            {company_id}/modals/taxes ................................... modals.taxes.store › Modals\Taxes@store
+  GET|HEAD        {company_id}/modals/taxes/create .......................... modals.taxes.create › Modals\Taxes@create
+  GET|HEAD        {company_id}/modals/taxes/{tax} ............................... modals.taxes.show › Modals\Taxes@show
+  PUT|PATCH       {company_id}/modals/taxes/{tax} ........................... modals.taxes.update › Modals\Taxes@update
+  DELETE          {company_id}/modals/taxes/{tax} ......................... modals.taxes.destroy › Modals\Taxes@destroy
+  GET|HEAD        {company_id}/modals/taxes/{tax}/edit .......................... modals.taxes.edit › Modals\Taxes@edit
+  POST            {company_id}/modals/transactions/{transaction}/emails modals.transactions.emails.store › Modals\Tran…
+  GET|HEAD        {company_id}/modals/transactions/{transaction}/emails/create modals.transactions.emails.create › Mod…
+  GET|HEAD        {company_id}/modals/transactions/{transaction}/share/create modals.transactions.share.create › Modal…
+  PATCH           {company_id}/modals/transfer-templates modals.transfer-templates.update › Modals\TransferTemplates@u…
+  GET|HEAD        {company_id}/modals/vendors ............................. modals.vendors.index › Modals\Vendors@index
+  POST            {company_id}/modals/vendors ............................. modals.vendors.store › Modals\Vendors@store
+  GET|HEAD        {company_id}/modals/vendors/create .................... modals.vendors.create › Modals\Vendors@create
+  GET|HEAD        {company_id}/modals/vendors/{vendor} ...................... modals.vendors.show › Modals\Vendors@show
+  PUT|PATCH       {company_id}/modals/vendors/{vendor} .................. modals.vendors.update › Modals\Vendors@update
+  DELETE          {company_id}/modals/vendors/{vendor} ................ modals.vendors.destroy › Modals\Vendors@destroy
+  GET|HEAD        {company_id}/modals/vendors/{vendor}/edit ................. modals.vendors.edit › Modals\Vendors@edit
+  GET|HEAD        {company_id}/my-blog ............... my-blog.posts.index › Modules\MyBlog\Http\Controllers\Main@index
+  GET|HEAD        {company_id}/offline-payments/settings offline-payments.settings.edit › Modules\OfflinePayments\Http…
+  POST            {company_id}/offline-payments/settings offline-payments.settings.update › Modules\OfflinePayments\Ht…
+  DELETE          {company_id}/offline-payments/settings/delete offline-payments.settings.delete › Modules\OfflinePaym…
+  POST            {company_id}/offline-payments/settings/get offline-payments.settings.get › Modules\OfflinePayments\H…
+  GET|HEAD        {company_id}/portal ....................................... portal.dashboard › Portal\Dashboard@index
+  GET|HEAD        {company_id}/portal/invoices .......................... portal.invoices.index › Portal\Invoices@index
+  POST            {company_id}/portal/invoices .......................... portal.invoices.store › Portal\Invoices@store
+  GET|HEAD        {company_id}/portal/invoices/create ................. portal.invoices.create › Portal\Invoices@create
+  GET|HEAD        {company_id}/portal/invoices/{invoice} .................. portal.invoices.show › Portal\Invoices@show
+  PUT|PATCH       {company_id}/portal/invoices/{invoice} .............. portal.invoices.update › Portal\Invoices@update
+  DELETE          {company_id}/portal/invoices/{invoice} ............ portal.invoices.destroy › Portal\Invoices@destroy
+  GET|HEAD        {company_id}/portal/invoices/{invoice}/edit ............. portal.invoices.edit › Portal\Invoices@edit
+  GET|HEAD        {company_id}/portal/invoices/{invoice}/finish ....... portal.invoices.finish › Portal\Invoices@finish
+  GET|HEAD        {company_id}/portal/invoices/{invoice}/pdf ......... portal.invoices.pdf › Portal\Invoices@pdfInvoice
+  GET|HEAD        {company_id}/portal/invoices/{invoice}/print ... portal.invoices.print › Portal\Invoices@printInvoice
+  GET|HEAD        {company_id}/portal/logout ....................................... portal.logout › Auth\Login@destroy
+  GET|HEAD        {company_id}/portal/offline-payments/invoices/{invoice} portal.offline-payments.invoices.show › Modu…
+  POST            {company_id}/portal/offline-payments/invoices/{invoice}/confirm portal.offline-payments.invoices.con…
+  GET|HEAD        {company_id}/portal/payments .......................... portal.payments.index › Portal\Payments@index
+  POST            {company_id}/portal/payments .......................... portal.payments.store › Portal\Payments@store
+  GET|HEAD        {company_id}/portal/payments/create ................. portal.payments.create › Portal\Payments@create
+  GET|HEAD        {company_id}/portal/payments/currencies ...... portal.payment.currencies › Portal\Payments@currencies
+  GET|HEAD        {company_id}/portal/payments/{payment} .................. portal.payments.show › Portal\Payments@show
+  PUT|PATCH       {company_id}/portal/payments/{payment} .............. portal.payments.update › Portal\Payments@update
+  DELETE          {company_id}/portal/payments/{payment} ............ portal.payments.destroy › Portal\Payments@destroy
+  GET|HEAD        {company_id}/portal/payments/{payment}/edit ............. portal.payments.edit › Portal\Payments@edit
+  GET|HEAD        {company_id}/portal/payments/{payment}/pdf ......... portal.payments.pdf › Portal\Payments@pdfPayment
+  GET|HEAD        {company_id}/portal/payments/{payment}/print ... portal.payments.print › Portal\Payments@printPayment
+  GET|HEAD        {company_id}/portal/paypal-standard/invoices/{invoice} portal.paypal-standard.invoices.show › Module…
+  GET|HEAD        {company_id}/portal/paypal-standard/invoices/{invoice}/complete portal.paypal-standard.invoices.retu…
+  POST            {company_id}/portal/paypal-standard/invoices/{invoice}/complete portal.paypal-standard.invoices.conf…
+  GET|HEAD        {company_id}/portal/profile ............................. portal.profile.index › Portal\Profile@index
+  POST            {company_id}/portal/profile ............................. portal.profile.store › Portal\Profile@store
+  GET|HEAD        {company_id}/portal/profile/create .................... portal.profile.create › Portal\Profile@create
+  GET|HEAD        {company_id}/portal/profile/read-invoices . portal.invoices.read › Portal\Profile@readOverdueInvoices
+  GET|HEAD        {company_id}/portal/profile/{profile} ..................... portal.profile.show › Portal\Profile@show
+  PUT|PATCH       {company_id}/portal/profile/{profile} ................. portal.profile.update › Portal\Profile@update
+  DELETE          {company_id}/portal/profile/{profile} ............... portal.profile.destroy › Portal\Profile@destroy
+  GET|HEAD        {company_id}/portal/profile/{profile}/edit ................ portal.profile.edit › Portal\Profile@edit
+  GET|HEAD        {company_id}/preview/invoices/{invoice} ............. preview.invoices.show › Portal\Invoices@preview
+  POST            {company_id}/preview/invoices/{invoice}/confirm .. preview.invoices.confirm › Portal\Invoices@confirm
+  GET|HEAD        {company_id}/preview/invoices/{invoice}/finish ..... preview.invoices.finish › Portal\Invoices@finish
+  POST            {company_id}/preview/invoices/{invoice}/payment .. preview.invoices.payment › Portal\Invoices@payment
+  GET|HEAD        {company_id}/preview/invoices/{invoice}/pdf ....... preview.invoices.pdf › Portal\Invoices@pdfInvoice
+  GET|HEAD        {company_id}/preview/invoices/{invoice}/print . preview.invoices.print › Portal\Invoices@printInvoice
+  GET|HEAD        {company_id}/preview/payments/{payment} ............. preview.payments.show › Portal\Payments@preview
+  GET|HEAD        {company_id}/preview/payments/{payment}/pdf ....... preview.payments.pdf › Portal\Payments@pdfPayment
+  GET|HEAD        {company_id}/preview/payments/{payment}/print . preview.payments.print › Portal\Payments@printPayment
+  GET|HEAD        {company_id}/purchases/bills .................................... bills.index › Purchases\Bills@index
+  POST            {company_id}/purchases/bills .................................... bills.store › Purchases\Bills@store
+  GET|HEAD        {company_id}/purchases/bills/create ........................... bills.create › Purchases\Bills@create
+  GET|HEAD        {company_id}/purchases/bills/export ........................... bills.export › Purchases\Bills@export
+  POST            {company_id}/purchases/bills/import ........................... bills.import › Purchases\Bills@import
+  GET|HEAD        {company_id}/purchases/bills/{bill} ............................... bills.show › Purchases\Bills@show
+  PUT|PATCH       {company_id}/purchases/bills/{bill} ........................... bills.update › Purchases\Bills@update
+  DELETE          {company_id}/purchases/bills/{bill} ......................... bills.destroy › Purchases\Bills@destroy
+  GET|HEAD        {company_id}/purchases/bills/{bill}/cancelled ....... bills.cancelled › Purchases\Bills@markCancelled
+  GET|HEAD        {company_id}/purchases/bills/{bill}/duplicate ........... bills.duplicate › Purchases\Bills@duplicate
+  GET|HEAD        {company_id}/purchases/bills/{bill}/edit .......................... bills.edit › Purchases\Bills@edit
+  GET|HEAD        {company_id}/purchases/bills/{bill}/pdf ......................... bills.pdf › Purchases\Bills@pdfBill
+  GET|HEAD        {company_id}/purchases/bills/{bill}/print ................... bills.print › Purchases\Bills@printBill
+  GET|HEAD        {company_id}/purchases/bills/{bill}/received .......... bills.received › Purchases\Bills@markReceived
+  GET|HEAD        {company_id}/purchases/recurring-bills ....... recurring-bills.index › Purchases\RecurringBills@index
+  POST            {company_id}/purchases/recurring-bills ....... recurring-bills.store › Purchases\RecurringBills@store
+  GET|HEAD        {company_id}/purchases/recurring-bills/create recurring-bills.create › Purchases\RecurringBills@crea…
+  GET|HEAD        {company_id}/purchases/recurring-bills/{recurring_bill} recurring-bills.show › Purchases\RecurringBi…
+  PUT|PATCH       {company_id}/purchases/recurring-bills/{recurring_bill} recurring-bills.update › Purchases\Recurring…
+  DELETE          {company_id}/purchases/recurring-bills/{recurring_bill} recurring-bills.destroy › Purchases\Recurrin…
+  GET|HEAD        {company_id}/purchases/recurring-bills/{recurring_bill}/duplicate recurring-bills.duplicate › Purcha…
+  GET|HEAD        {company_id}/purchases/recurring-bills/{recurring_bill}/edit recurring-bills.edit › Purchases\Recurr…
+  GET|HEAD        {company_id}/purchases/recurring-bills/{recurring_bill}/end recurring-bills.end › Purchases\Recurrin…
+  GET|HEAD        {company_id}/purchases/vendors .............................. vendors.index › Purchases\Vendors@index
+  POST            {company_id}/purchases/vendors .............................. vendors.store › Purchases\Vendors@store
+  GET|HEAD        {company_id}/purchases/vendors/create ..................... vendors.create › Purchases\Vendors@create
+  GET|HEAD        {company_id}/purchases/vendors/export ..................... vendors.export › Purchases\Vendors@export
+  POST            {company_id}/purchases/vendors/import ..................... vendors.import › Purchases\Vendors@import
+  GET|HEAD        {company_id}/purchases/vendors/{vendor} ....................... vendors.show › Purchases\Vendors@show
+  PUT|PATCH       {company_id}/purchases/vendors/{vendor} ................... vendors.update › Purchases\Vendors@update
+  DELETE          {company_id}/purchases/vendors/{vendor} ................. vendors.destroy › Purchases\Vendors@destroy
+  GET|HEAD        {company_id}/purchases/vendors/{vendor}/create-bill vendors.create-bill › Purchases\Vendors@createBi…
+  GET|HEAD        {company_id}/purchases/vendors/{vendor}/create-expense vendors.create-expense › Purchases\Vendors@cr…
+  GET|HEAD        {company_id}/purchases/vendors/{vendor}/disable ......... vendors.disable › Purchases\Vendors@disable
+  GET|HEAD        {company_id}/purchases/vendors/{vendor}/duplicate ... vendors.duplicate › Purchases\Vendors@duplicate
+  GET|HEAD        {company_id}/purchases/vendors/{vendor}/edit .................. vendors.edit › Purchases\Vendors@edit
+  GET|HEAD        {company_id}/purchases/vendors/{vendor}/enable ............ vendors.enable › Purchases\Vendors@enable
+  GET|HEAD        {company_id}/sales/customers ................................ customers.index › Sales\Customers@index
+  POST            {company_id}/sales/customers ................................ customers.store › Sales\Customers@store
+  GET|HEAD        {company_id}/sales/customers/create ....................... customers.create › Sales\Customers@create
+  GET|HEAD        {company_id}/sales/customers/export ....................... customers.export › Sales\Customers@export
+  POST            {company_id}/sales/customers/import ....................... customers.import › Sales\Customers@import
+  GET|HEAD        {company_id}/sales/customers/{customer} ....................... customers.show › Sales\Customers@show
+  PUT|PATCH       {company_id}/sales/customers/{customer} ................... customers.update › Sales\Customers@update
+  DELETE          {company_id}/sales/customers/{customer} ................. customers.destroy › Sales\Customers@destroy
+  GET|HEAD        {company_id}/sales/customers/{customer}/create-income customers.create-income › Sales\Customers@crea…
+  GET|HEAD        {company_id}/sales/customers/{customer}/create-invoice customers.create-invoice › Sales\Customers@cr…
+  GET|HEAD        {company_id}/sales/customers/{customer}/disable ......... customers.disable › Sales\Customers@disable
+  GET|HEAD        {company_id}/sales/customers/{customer}/duplicate ... customers.duplicate › Sales\Customers@duplicate
+  GET|HEAD        {company_id}/sales/customers/{customer}/edit .................. customers.edit › Sales\Customers@edit
+  GET|HEAD        {company_id}/sales/customers/{customer}/enable ............ customers.enable › Sales\Customers@enable
+  GET|HEAD        {company_id}/sales/invoices ................................... invoices.index › Sales\Invoices@index
+  POST            {company_id}/sales/invoices ................................... invoices.store › Sales\Invoices@store
+  GET|HEAD        {company_id}/sales/invoices/create .......................... invoices.create › Sales\Invoices@create
+  GET|HEAD        {company_id}/sales/invoices/export .......................... invoices.export › Sales\Invoices@export
+  POST            {company_id}/sales/invoices/import .......................... invoices.import › Sales\Invoices@import
+  GET|HEAD        {company_id}/sales/invoices/{invoice} ........................... invoices.show › Sales\Invoices@show
+  PUT|PATCH       {company_id}/sales/invoices/{invoice} ....................... invoices.update › Sales\Invoices@update
+  DELETE          {company_id}/sales/invoices/{invoice} ..................... invoices.destroy › Sales\Invoices@destroy
+  GET|HEAD        {company_id}/sales/invoices/{invoice}/cancelled ... invoices.cancelled › Sales\Invoices@markCancelled
+  GET|HEAD        {company_id}/sales/invoices/{invoice}/duplicate ....... invoices.duplicate › Sales\Invoices@duplicate
+  GET|HEAD        {company_id}/sales/invoices/{invoice}/edit ...................... invoices.edit › Sales\Invoices@edit
+  GET|HEAD        {company_id}/sales/invoices/{invoice}/email ............ invoices.email › Sales\Invoices@emailInvoice
+  GET|HEAD        {company_id}/sales/invoices/{invoice}/pdf .................. invoices.pdf › Sales\Invoices@pdfInvoice
+  GET|HEAD        {company_id}/sales/invoices/{invoice}/print ............ invoices.print › Sales\Invoices@printInvoice
+  GET|HEAD        {company_id}/sales/invoices/{invoice}/sent .................. invoices.sent › Sales\Invoices@markSent
+  GET|HEAD        {company_id}/sales/recurring-invoices ...... recurring-invoices.index › Sales\RecurringInvoices@index
+  POST            {company_id}/sales/recurring-invoices ...... recurring-invoices.store › Sales\RecurringInvoices@store
+  GET|HEAD        {company_id}/sales/recurring-invoices/create recurring-invoices.create › Sales\RecurringInvoices@cre…
+  GET|HEAD        {company_id}/sales/recurring-invoices/{recurring_invoice} recurring-invoices.show › Sales\RecurringI…
+  PUT|PATCH       {company_id}/sales/recurring-invoices/{recurring_invoice} recurring-invoices.update › Sales\Recurrin…
+  DELETE          {company_id}/sales/recurring-invoices/{recurring_invoice} recurring-invoices.destroy › Sales\Recurri…
+  GET|HEAD        {company_id}/sales/recurring-invoices/{recurring_invoice}/duplicate recurring-invoices.duplicate › S…
+  GET|HEAD        {company_id}/sales/recurring-invoices/{recurring_invoice}/edit recurring-invoices.edit › Sales\Recur…
+  GET|HEAD        {company_id}/sales/recurring-invoices/{recurring_invoice}/end recurring-invoices.end › Sales\Recurri…
+  GET|HEAD        {company_id}/settings/categories ....................... categories.index › Settings\Categories@index
+  POST            {company_id}/settings/categories ....................... categories.store › Settings\Categories@store
+  GET|HEAD        {company_id}/settings/categories/create .............. categories.create › Settings\Categories@create
+  GET|HEAD        {company_id}/settings/categories/export .............. categories.export › Settings\Categories@export
+  POST            {company_id}/settings/categories/import .............. categories.import › Settings\Categories@import
+  GET|HEAD        {company_id}/settings/categories/{category} .............. categories.show › Settings\Categories@show
+  PUT|PATCH       {company_id}/settings/categories/{category} .......... categories.update › Settings\Categories@update
+  DELETE          {company_id}/settings/categories/{category} ........ categories.destroy › Settings\Categories@destroy
+  GET|HEAD        {company_id}/settings/categories/{category}/disable categories.disable › Settings\Categories@disable
+  GET|HEAD        {company_id}/settings/categories/{category}/edit ......... categories.edit › Settings\Categories@edit
+  GET|HEAD        {company_id}/settings/categories/{category}/enable ... categories.enable › Settings\Categories@enable
+  GET|HEAD        {company_id}/settings/company ......................... settings.company.edit › Settings\Company@edit
+  PATCH           {company_id}/settings/company ..................... settings.company.update › Settings\Company@update
+  GET|HEAD        {company_id}/settings/currencies ....................... currencies.index › Settings\Currencies@index
+  POST            {company_id}/settings/currencies ....................... currencies.store › Settings\Currencies@store
+  GET|HEAD        {company_id}/settings/currencies/config .............. currencies.config › Settings\Currencies@config
+  GET|HEAD        {company_id}/settings/currencies/create .............. currencies.create › Settings\Currencies@create
+  GET|HEAD        {company_id}/settings/currencies/{currency} .............. currencies.show › Settings\Currencies@show
+  PUT|PATCH       {company_id}/settings/currencies/{currency} .......... currencies.update › Settings\Currencies@update
+  DELETE          {company_id}/settings/currencies/{currency} ........ currencies.destroy › Settings\Currencies@destroy
+  GET|HEAD        {company_id}/settings/currencies/{currency}/disable currencies.disable › Settings\Currencies@disable
+  GET|HEAD        {company_id}/settings/currencies/{currency}/edit ......... currencies.edit › Settings\Currencies@edit
+  GET|HEAD        {company_id}/settings/currencies/{currency}/enable ... currencies.enable › Settings\Currencies@enable
+  GET|HEAD        {company_id}/settings/default ........................ settings.default.edit › Settings\Defaults@edit
+  PATCH           {company_id}/settings/default .................... settings.default.update › Settings\Defaults@update
+  GET|HEAD        {company_id}/settings/email ............................... settings.email.edit › Settings\Email@edit
+  PATCH           {company_id}/settings/email ........................... settings.email.update › Settings\Email@update
+  GET|HEAD        {company_id}/settings/email-templates .. settings.email-templates.edit › Settings\EmailTemplates@edit
+  PATCH           {company_id}/settings/email-templates settings.email-templates.update › Settings\EmailTemplates@upda…
+  GET|HEAD        {company_id}/settings/email-templates/get settings.email-templates.get › Settings\EmailTemplates@get
+  GET|HEAD        {company_id}/settings/invoice ......................... settings.invoice.edit › Settings\Invoice@edit
+  PATCH           {company_id}/settings/invoice ..................... settings.invoice.update › Settings\Invoice@update
+  GET|HEAD        {company_id}/settings/localisation .......... settings.localisation.edit › Settings\Localisation@edit
+  PATCH           {company_id}/settings/localisation ...... settings.localisation.update › Settings\Localisation@update
+  GET|HEAD        {company_id}/settings/schedule ...................... settings.schedule.edit › Settings\Schedule@edit
+  PATCH           {company_id}/settings/schedule .................. settings.schedule.update › Settings\Schedule@update
+  GET|HEAD        {company_id}/settings/taxes ...................................... taxes.index › Settings\Taxes@index
+  POST            {company_id}/settings/taxes ...................................... taxes.store › Settings\Taxes@store
+  GET|HEAD        {company_id}/settings/taxes/create ............................. taxes.create › Settings\Taxes@create
+  GET|HEAD        {company_id}/settings/taxes/export ............................. taxes.export › Settings\Taxes@export
+  POST            {company_id}/settings/taxes/import ............................. taxes.import › Settings\Taxes@import
+  GET|HEAD        {company_id}/settings/taxes/{tax} .................................. taxes.show › Settings\Taxes@show
+  PUT|PATCH       {company_id}/settings/taxes/{tax} .............................. taxes.update › Settings\Taxes@update
+  DELETE          {company_id}/settings/taxes/{tax} ............................ taxes.destroy › Settings\Taxes@destroy
+  GET|HEAD        {company_id}/settings/taxes/{tax}/disable .................... taxes.disable › Settings\Taxes@disable
+  GET|HEAD        {company_id}/settings/taxes/{tax}/edit ............................. taxes.edit › Settings\Taxes@edit
+  GET|HEAD        {company_id}/settings/taxes/{tax}/enable ....................... taxes.enable › Settings\Taxes@enable
+  GET|HEAD        {company_id}/signed/invoices/{invoice} ................ signed.invoices.show › Portal\Invoices@signed
+  POST            {company_id}/signed/invoices/{invoice}/confirm .... signed.invoices.confirm › Portal\Invoices@confirm
+  GET|HEAD        {company_id}/signed/invoices/{invoice}/finish ....... signed.invoices.finish › Portal\Invoices@finish
+  POST            {company_id}/signed/invoices/{invoice}/payment .... signed.invoices.payment › Portal\Invoices@payment
+  GET|HEAD        {company_id}/signed/invoices/{invoice}/pdf ......... signed.invoices.pdf › Portal\Invoices@pdfInvoice
+  GET|HEAD        {company_id}/signed/invoices/{invoice}/print ... signed.invoices.print › Portal\Invoices@printInvoice
+  GET|HEAD        {company_id}/signed/offline-payments/invoices/{invoice} signed.offline-payments.invoices.show › Modu…
+  POST            {company_id}/signed/offline-payments/invoices/{invoice}/confirm signed.offline-payments.invoices.con…
+  GET|HEAD        {company_id}/signed/payments/{payment} ................ signed.payments.show › Portal\Payments@signed
+  GET|HEAD        {company_id}/signed/payments/{payment}/pdf ......... signed.payments.pdf › Portal\Payments@pdfPayment
+  GET|HEAD        {company_id}/signed/payments/{payment}/print ... signed.payments.print › Portal\Payments@printPayment
+  GET|HEAD        {company_id}/signed/paypal-standard/invoices/{invoice} signed.paypal-standard.invoices.show › Module…
+  GET|HEAD        {company_id}/signed/paypal-standard/invoices/{invoice}/complete signed.paypal-standard.invoices.retu…
+  POST            {company_id}/signed/paypal-standard/invoices/{invoice}/complete signed.paypal-standard.invoices.conf…
+  GET|HEAD        {company_id}/uploads/{id} .......................................... uploads.get › Common\Uploads@get
+  DELETE          {company_id}/uploads/{id} .................................. uploads.destroy › Common\Uploads@destroy
+  GET|HEAD        {company_id}/uploads/{id}/download ....................... uploads.download › Common\Uploads@download
+  GET|HEAD        {company_id}/uploads/{id}/show ................................... uploads.show › Common\Uploads@show
+  GET|HEAD        {company_id}/wizard ............................................. wizard.edit › Wizard\Companies@edit
+  GET|HEAD        {company_id}/wizard/companies ......................... wizard.companies.edit › Wizard\Companies@edit
+  POST            {company_id}/wizard/companies ..................... wizard.companies.update › Wizard\Companies@update
+  GET|HEAD        {company_id}/wizard/currencies .................... wizard.currencies.index › Wizard\Currencies@index
+  POST            {company_id}/wizard/currencies .................... wizard.currencies.store › Wizard\Currencies@store
+  GET|HEAD        {company_id}/wizard/currencies/create ........... wizard.currencies.create › Wizard\Currencies@create
+  GET|HEAD        {company_id}/wizard/currencies/{currency} ........... wizard.currencies.show › Wizard\Currencies@show
+  PUT|PATCH       {company_id}/wizard/currencies/{currency} ....... wizard.currencies.update › Wizard\Currencies@update
+  DELETE          {company_id}/wizard/currencies/{currency} ..... wizard.currencies.destroy › Wizard\Currencies@destroy
+  GET|HEAD        {company_id}/wizard/currencies/{currency}/disable wizard.currencies.disable › Settings\Currencies@di…
+  GET|HEAD        {company_id}/wizard/currencies/{currency}/edit ...... wizard.currencies.edit › Wizard\Currencies@edit
+  GET|HEAD        {company_id}/wizard/currencies/{currency}/enable wizard.currencies.enable › Settings\Currencies@enab…
+  GET|HEAD        {company_id}/wizard/finish ................................ wizard.finish.index › Wizard\Finish@index
+  PATCH           {company_id}/wizard/finish .............................. wizard.finish.update › Wizard\Finish@update
+  GET|HEAD        {company_id}/{alias}/settings .......................... settings.module.edit › Settings\Modules@edit
+  PATCH           {company_id}/{alias}/settings ...................... settings.module.update › Settings\Modules@update
+
+                                                                                                   Showing [599] routes
+
